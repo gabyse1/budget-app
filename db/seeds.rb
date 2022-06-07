@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # rails g model User name:string
-# rails g model Category name:string icon:string user:references:index
+# rails g model Category name:string user:references:index
 # rails g model TransactionItem name:string amount:decimal{10-2} user:references:index category:references:index
