@@ -1,0 +1,14 @@
+require 'rails_helper'
+
+RSpec.describe 'Home', type: :request do
+  describe 'GET /index' do
+    before { get root_path }
+    it 'should get a success response.' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'should render the index template.' do
+      expect(response).to render_template(:index)
+    end
+  end
+end
