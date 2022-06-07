@@ -1,0 +1,13 @@
+<header>
+  <div class="header__back">
+  <%= link_to 'Back', 'javascript:history.go(-1);' %>
+  </div>
+  <div class="header__title">
+  <%= tag.h1(h_title) %>
+  </div>
+  <% if h_submit %>
+  <div class="header__submit">
+    Log in
+  </div>
+  <% end %>
+</header>
