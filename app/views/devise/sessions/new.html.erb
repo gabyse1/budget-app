@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<%= render partial: 'layouts/header', locals: { h_title: 'LOGIN', h_submit: true } %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
