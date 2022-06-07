@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Categories", type: :request do
+RSpec.describe 'Categories', type: :request do
   let(:user) { create :user }
 
   before :each do
@@ -8,9 +8,9 @@ RSpec.describe "Categories", type: :request do
     sign_in user
   end
 
-  describe "GET /index," do
+  describe 'GET /index,' do
     before { get categories_path }
-  
+
     it 'should get a success response.' do
       expect(response).to have_http_status(:ok)
     end

@@ -19,7 +19,7 @@ RSpec.describe Category, type: :model do
   end
 
   context 'with a valid file, icon' do
-    it "should is attached" do
+    it 'should is attached' do
       expect(category.icon).to be_attached
     end
   end

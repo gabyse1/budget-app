@@ -23,7 +23,7 @@ RSpec.describe 'Category,', type: :feature do
     it 'should display the categories name' do
       expect(page).to have_text(category.name)
     end
-    
+
     it 'should display the category icon' do
       category_icon = find_by_id("img-#{category.icon.filename}")
       expect(category_icon).to_not be_nil
