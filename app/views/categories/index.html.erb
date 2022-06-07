@@ -1,0 +1,7 @@
+<%= render partial: 'layouts/header', locals: { h_title: 'CATEGORIES', h_submit: false } %>
+<ul class="list">
+<%= render partial: 'category_card', collection: @categories, as: :category %>
+</ul>
+<div class="manage_buttons">
+<%= link_to 'NEW CATEGORY', new_category_path, class: 'btn btn-green' %>
+</div>
