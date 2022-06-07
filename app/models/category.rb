@@ -5,7 +5,7 @@ class Category < ApplicationRecord
   has_one_attached :icon, dependent: :destroy
 
   validates :name, presence: true
-  validates :icon, presence: true
+  validates :icon_format
 
   def category_total_amount
     total_amount = 0
@@ -13,5 +13,14 @@ class Category < ApplicationRecord
       total_amount += ct.amount
     end
     total_amount
+  end
+
+  private
+
+  def icon_format
+    return unless icon.attached?
+    return if icon.blob.content_type.start_with? 'image/'
+    icon.purge_later
+    errors.add(:icon, 'needs to be an image')
   end
 end
