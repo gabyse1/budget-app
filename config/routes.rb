@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index new create]
 
   # Defines the root path route ("/")
-  root "categories#index"
+  root "home#index"
 end
