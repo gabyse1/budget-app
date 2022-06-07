@@ -1,0 +1,11 @@
+<li class="list__item">
+  <div class="item__icon">
+    <%= image_tag category.icon.variant(resize_to_limit: [100, 100]), alt: "#{category.name}'s icon", id: "img-#{category.icon.filename}" if category.icon.attached? %>
+  </div>
+  <div class="item__name">
+    <%= tag.p category.name %>
+  </div>
+  <div class="item__total">
+    <%= tag.p category.category_total_amount %>
+  </div>
+</li>
