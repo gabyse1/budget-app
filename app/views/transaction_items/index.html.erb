@@ -1,0 +1,7 @@
+<%= render partial: 'layouts/header', locals: { h_title: 'TRANSACTIONS', h_submit: false } %>
+<ul class="list">
+<%= render partial: 'transaction_card', collection: @transactions, as: :transaction %>
+</ul>
+<div class="manage_buttons">
+<%= link_to 'NEW TRANSACTION', new_category_transaction_item_path(@category.id), class: 'btn btn-green' %>
+</div>
