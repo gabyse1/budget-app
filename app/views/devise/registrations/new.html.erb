@@ -1,5 +1,7 @@
-<%= render partial: 'layouts/header', locals: { h_title: 'REGISTER', h_submit: true } %>
+<%= render partial: 'layouts/header', locals: { h_title: 'REGISTER', h_back: root_path, h_submit: true } %>
 
+<div class="box__main box__main-full">
+<%= render partial: 'layouts/message' %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -27,8 +29,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Next", class: 'btn-header' %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>

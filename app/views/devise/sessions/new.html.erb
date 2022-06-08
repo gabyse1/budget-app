@@ -1,5 +1,7 @@
-<%= render partial: 'layouts/header', locals: { h_title: 'LOGIN', h_submit: true } %>
+<%= render partial: 'layouts/header', locals: { h_title: 'LOGIN', h_back: root_path, h_submit: true } %>
 
+<div class="box__main box__main-full">
+<%= render partial: 'layouts/message' %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -19,8 +21,8 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Next", class: 'btn-header' %>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>

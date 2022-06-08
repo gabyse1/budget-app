@@ -8,7 +8,7 @@ RSpec.describe 'TransactionItem #new,', type: :feature do
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Log in'
+    click_button 'Next'
 
     visit new_category_transaction_item_path category.id
   end

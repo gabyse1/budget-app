@@ -7,7 +7,7 @@ RSpec.describe 'Home.', type: :feature do
 
   context 'when load the page, it' do
     it 'should display the app name.' do
-      expect(page).to have_text('Splash Screen')
+      expect(page).to have_text('Snapcheck')
     end
 
     it 'should display the log in link.' do

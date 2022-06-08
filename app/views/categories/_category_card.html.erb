@@ -5,8 +5,8 @@
   <div class="item__name">
     <%= tag.p category.name %>
   </div>
-  <div class="item__total">
-    <%= tag.p category.category_total_amount %>
+  <div class="item__amount">
+    <%= tag.p "$ #{category.category_total_amount}" %>
   </div>
   <%= link_to '', category_transaction_items_path(category.id), class: 'link link__card-hidden', id: "link-to-category-#{category.id}-transactions" %>
 </li>
