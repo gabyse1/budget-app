@@ -11,7 +11,7 @@ RSpec.describe 'Sign up process.', type: :feature do
       email_field = find_field('Email')
       pass_field = find_field('Password')
       conf_pass_field = find_field('Password confirmation')
-      submit_button = find_button('Sign up')
+      submit_button = find_button('Next')
 
       expect(name_field).to_not be_nil
       expect(email_field).to_not be_nil
@@ -25,7 +25,7 @@ RSpec.describe 'Sign up process.', type: :feature do
     let(:user_name) { 'test user name' }
     let(:user_email) { 'test.user@example.org' }
     let(:user_password) { 'test.password' }
-    let(:submit) { 'Sign up' }
+    let(:submit) { 'Next' }
 
     before :all do
       User.destroy_all
@@ -42,7 +42,7 @@ RSpec.describe 'Sign up process.', type: :feature do
     context 'without name' do
       it "should return `Name can't be blank` message." do
         fill_in 'user_name', with: nil
-        click_button 'Sign up'
+        click_button submit
         expect(page).to have_text("Name can't be blank")
       end
     end
@@ -50,7 +50,7 @@ RSpec.describe 'Sign up process.', type: :feature do
     context 'without email' do
       it "should return `Email can't be blank` message." do
         fill_in 'user_email', with: nil
-        click_button 'Sign up'
+        click_button submit
         expect(page).to have_text("Email can't be blank")
       end
     end
@@ -58,7 +58,7 @@ RSpec.describe 'Sign up process.', type: :feature do
     context 'without password' do
       it "should return `Password can't be blank` message." do
         fill_in 'user_password', with: nil
-        click_button 'Sign up'
+        click_button submit
         expect(page).to have_text("Password can't be blank")
       end
     end
@@ -66,7 +66,7 @@ RSpec.describe 'Sign up process.', type: :feature do
     context 'Without Password Confirmation' do
       it "should return `Password confirmation doesn't match Password` message." do
         fill_in 'user_password_confirmation', with: nil
-        click_button 'Sign up'
+        click_button submit
         expect(page).to have_text("Password confirmation doesn't match Password")
       end
     end
@@ -74,7 +74,7 @@ RSpec.describe 'Sign up process.', type: :feature do
     context 'with password length less that 6 characters' do
       it 'should return `Password is too short (minimum is 6 characters)` message.' do
         fill_in 'user_password', with: 'a' * 5
-        click_button 'Sign up'
+        click_button submit
         expect(page).to have_text('Password is too short (minimum is 6 characters)')
       end
     end
@@ -82,7 +82,7 @@ RSpec.describe 'Sign up process.', type: :feature do
     context 'With different Password Confirmation' do
       it "should return `Password confirmation doesn't match Password` message." do
         fill_in 'user_password_confirmation', with: 'b' * 5
-        click_button 'Sign up'
+        click_button submit
         expect(page).to have_text("Password confirmation doesn't match Password")
       end
     end
@@ -90,7 +90,7 @@ RSpec.describe 'Sign up process.', type: :feature do
     # context 'With complete and correct data' do
     #   it "should return `Sign up successfully.` message." do
     #     ActionMailer::Base.deliveries.clear
-    #     click_button 'Sign up'
+    #     click_button submit
     #     puts ActionMailer::Base.deliveries.length
     #     mail = ActionMailer::Base.deliveries.find { |mail|
     #       mail.to.include? user_email

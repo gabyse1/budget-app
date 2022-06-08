@@ -6,7 +6,7 @@ RSpec.describe 'Sign in process', type: :feature do
       visit new_user_session_path
       email_field = find_field('Email')
       password_field = find_field('Password')
-      submit_button = find_button('Log in')
+      submit_button = find_button('Next')
       expect(email_field).to_not be_nil
       expect(password_field).to_not be_nil
       expect(submit_button).to_not be_nil
@@ -15,7 +15,7 @@ RSpec.describe 'Sign in process', type: :feature do
 
   describe 'User login' do
     let(:user) { create :user }
-    let(:submit) { 'Log in' }
+    let(:submit) { 'Next' }
 
     before :each do
       visit new_user_session_path
@@ -55,10 +55,10 @@ RSpec.describe 'Sign in process', type: :feature do
       end
     end
 
-    context 'with complete and corret email and password' do
+    context 'with complete and correct email and password' do
       it 'should return `Signed in successfully.` message.' do
         click_button submit
-        expect(current_path).to eq(root_path)
+        expect(current_path).to eq(categories_path)
         expect(page).to have_text('Signed in successfully.')
       end
     end
