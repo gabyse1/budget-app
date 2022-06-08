@@ -1,7 +1,16 @@
-<%= render partial: 'layouts/header', locals: { h_title: 'TRANSACTIONS', h_submit: false } %>
-<ul class="list">
-<%= render partial: 'transaction_card', collection: @transactions, as: :transaction %>
-</ul>
-<div class="manage_buttons">
-<%= link_to 'NEW TRANSACTION', new_category_transaction_item_path(@category.id), class: 'btn btn-green' %>
+<%= render partial: 'layouts/header', locals: { h_title: 'TRANSACTIONS', h_back: categories_path, h_submit: false } %>
+<div class="box__main">
+  <%= render partial: 'layouts/message' %>
+  <% if @transactions.count > 0 %>
+    <ul class="list">
+    <%= render partial: 'transaction_card', collection: @transactions, as: :transaction %>
+    </ul>
+  <% else %>
+    <%= tag.p 'There are no transactions recorded for this category yet.' %>
+  <% end %>
+</div>
+<div class="box__crud">
+  <div class="link__btn-box">
+  <%= link_to 'NEW TRANSACTION', new_category_transaction_item_path(@category.id), class: 'link' %>
+  </div>
 </div>

@@ -1,9 +1,16 @@
-<%= render partial: 'layouts/header', locals: { h_title: 'TRANSACTION', h_submit: true } %>
-<div class="form__container">
-<%= form_with model: TransactionItem.new, url: category_transaction_items_path do |f| %>
-  <%= f.text_field :name, placeholder: 'Name' %>
-  <%= f.text_field :amount, placeholder: 'Amount' %>
-  <%= f.hidden_field :category_id, value: @category.id %>
-  <%= f.submit 'Save', class: 'btn-header' %>
-<% end %>
+<%= render partial: 'layouts/header', locals: { h_title: 'TRANSACTION', h_back: category_transaction_items_path(@category.id), h_submit: true } %>
+<div class="box__main box__main-full">
+  <%= render partial: 'layouts/message' %>
+  <%= form_with model: TransactionItem.new, url: category_transaction_items_path do |f| %>
+    <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+    </div>
+    <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+    </div>
+    <%= f.hidden_field :category_id, value: @category.id %>
+    <%= f.submit 'Save', class: 'btn-header' %>
+  <% end %>
 </div>
