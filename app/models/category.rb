@@ -13,7 +13,7 @@ class Category < ApplicationRecord
     transaction_items.each do |ct|
       total_amount += ct.amount
     end
-    total_amount
+    Float(total_amount).round(2)
   end
 
   private
