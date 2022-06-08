@@ -51,7 +51,7 @@ RSpec.describe 'TransactionItem #new,', type: :feature do
     context 'with complete and correct data' do
       it 'should redirect to the transactions list page' do
         click_button submit
-        expect(current_path).to eq(category_transaction_items_path category.id)
+        expect(current_path).to eq(category_transaction_items_path(category.id))
       end
 
       it 'should return `Transaction was successfully created.` message.' do

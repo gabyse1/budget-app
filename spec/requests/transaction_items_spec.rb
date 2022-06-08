@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "TransactionItems", type: :request do
+RSpec.describe 'TransactionItems', type: :request do
   let(:user) { create :user }
   let(:category) { create :category, :with_icon, user: }
 

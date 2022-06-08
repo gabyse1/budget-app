@@ -14,10 +14,10 @@ class TransactionItemsController < ApplicationController
   def new
     @current_user = current_user
     @category = Category.find(params[:category_id])
-    unless @current_user.categories.include? @category
-      flash[:alert] = "You are not allowed to manage the #{@category.name} category. Select a category from the list."
-      redirect_to categories_url
-    end
+    return if @current_user.categories.include? @category
+
+    flash[:alert] = "You are not allowed to manage the #{@category.name} category. Select a category from the list."
+    redirect_to categories_url
   end
 
   def create
@@ -41,6 +41,6 @@ class TransactionItemsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction_item).permit(:name, :amount, :category_id )
+    params.require(:transaction_item).permit(:name, :amount, :category_id)
   end
 end
