@@ -8,7 +8,7 @@ class TransactionItemsController < ApplicationController
       flash[:alert] = "You are not allowed to manage the #{@category.name} category. Select a category from the list."
       redirect_to categories_url
     end
-    @transactions = @category.transaction_items
+    @transactions = @category.transaction_items.order(created_at: :desc)
   end
 
   def new
