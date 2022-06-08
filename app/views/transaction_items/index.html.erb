@@ -1,4 +1,17 @@
 <%= render partial: 'layouts/header', locals: { h_title: 'TRANSACTIONS', h_back: categories_path, h_submit: false } %>
+<% if @transactions.count > 0 %>
+  <div class="box__filter">
+  <%= link_to category_transaction_items_path(@category.id, order: (@t_order == 'asc' ? 'desc' : 'asc')), class: 'link' do %>
+    <% if @t_order == 'desc' %>
+      <i class="fa-solid fa-arrow-down-1-9"></i>
+      Most ancient
+    <% else %>
+      <i class="fa-solid fa-arrow-down-9-1"></i>
+      Most recent
+    <% end %>
+  <% end %>
+  </div>
+<% end %>
 <div class="box__main">
   <%= render partial: 'layouts/message' %>
   <% if @transactions.count > 0 %>
