@@ -1,0 +1,9 @@
+<%= render partial: 'layouts/header', locals: { h_title: 'TRANSACTION', h_submit: true } %>
+<div class="form__container">
+<%= form_with model: TransactionItem.new, url: category_transaction_items_path do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.text_field :amount, placeholder: 'Amount' %>
+  <%= f.hidden_field :category_id, value: @category.id %>
+  <%= f.submit 'Save', class: 'btn-header' %>
+<% end %>
+</div>
