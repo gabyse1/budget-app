@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :transaction_item do
-    name { 'MyString' }
-    amount { '9.99' }
-    user { nil }
-    category { nil }
+    name { 'fruit transaction' }
+    amount { 9.99 }
+    category
+    user
   end
 end
