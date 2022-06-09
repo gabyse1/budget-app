@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: budget_app_development
+  database: <%= Rails.application.credentials.DB_NAME.dev_db %>
+  username: <%= Rails.application.credentials.DB_USERNAME.dev_db %>
+  password: <%= Rails.application.credentials.DB_PASSWORD.dev_db %>
+  # database: budget_app_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +60,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: budget_app_test
+  database: <%= Rails.application.credentials.DB_NAME.test_db %>
+  username: <%= Rails.application.credentials.DB_USERNAME.test_db %>
+  password: <%= Rails.application.credentials.DB_PASSWORD.test_db %>
+  # database: budget_app_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +87,9 @@ test:
 #
 production:
   <<: *default
-  database: budget_app_production
-  username: budget_app
-  password: <%= ENV["BUDGET_APP_DATABASE_PASSWORD"] %>
+  database: <%= Rails.application.credentials.DB_NAME.prod_db %>
+  username: <%= Rails.application.credentials.DB_USERNAME.prod_db %>
+  password: <%= Rails.application.credentials.DB_PASSWORD.prod_db %>
+  # database: budget_app_production
+  # username: budget_app
+  # password: <%= ENV["BUDGET_APP_DATABASE_PASSWORD"] %>
