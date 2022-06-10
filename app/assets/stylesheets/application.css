@@ -349,3 +349,9 @@ label {
   right: 0;
   z-index: 10;
 }
+
+.note-message {
+  margin-top: 1rem;
+  color: var(--blue);
+  font-weight: 500;
+}

@@ -11,7 +11,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
+    <em>(enter a valid email to send you a verification)</em><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
@@ -32,4 +33,5 @@
     <%= f.submit "Next", class: 'btn-header' %>
   </div>
 <% end %>
+<%= tag.p 'Check your email box to confirm your account.', class: 'note-message' %>
 </div>
