@@ -1,0 +1,12 @@
+<li class="list__item" id="category-#{category.id}">
+  <div class="item__icon">
+    <%= image_tag url_for(category.icon), alt: "#{category.name}'s icon", id: "img-#{category.icon.filename}" if category.icon.attached? %>
+  </div>
+  <div class="item__name">
+    <%= tag.p category.name %>
+  </div>
+  <div class="item__amount">
+    <%= tag.p "$ #{category.category_total_amount}" %>
+  </div>
+  <%= link_to '', category_transaction_items_path(category.id), class: 'link link__card-hidden', id: "link-to-category-#{category.id}-transactions" %>
+</li>

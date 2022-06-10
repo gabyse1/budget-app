@@ -1,0 +1,16 @@
+<nav class="box__nav">
+  <div class="nav__back">
+    <% if h_back %>
+      <%= link_to h_back, class: 'link' do %>
+        <i class="fa-solid fa-arrow-left-long"></i>
+      <% end %>
+    <% else %>
+      <%= link_to 'Log Out', destroy_user_session_path, 'data-turbo-method': :delete, class: 'link' %>
+    <% end %>
+  </div>
+  <div class="nav__title">
+  <%= tag.h1 h_title, class: 'title__header' %>
+  </div>
+  <div class="nav__submit">
+  </div>
+</nav>

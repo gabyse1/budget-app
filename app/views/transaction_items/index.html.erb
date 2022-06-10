@@ -1,0 +1,29 @@
+<%= render partial: 'layouts/header', locals: { h_title: 'TRANSACTIONS', h_back: categories_path, h_submit: false } %>
+<% if @transactions.count > 0 %>
+  <div class="box__filter">
+  <%= link_to category_transaction_items_path(@category.id, order: (@t_order == 'asc' ? 'desc' : 'asc')), class: 'link' do %>
+    <% if @t_order == 'desc' %>
+      <i class="fa-solid fa-arrow-down-1-9"></i>
+      Most ancient
+    <% else %>
+      <i class="fa-solid fa-arrow-down-9-1"></i>
+      Most recent
+    <% end %>
+  <% end %>
+  </div>
+<% end %>
+<div class="box__main">
+  <%= render partial: 'layouts/message' %>
+  <% if @transactions.count > 0 %>
+    <ul class="list">
+    <%= render partial: 'transaction_card', collection: @transactions, as: :transaction %>
+    </ul>
+  <% else %>
+    <%= tag.p 'There are no transactions recorded for this category yet.' %>
+  <% end %>
+</div>
+<div class="box__crud">
+  <div class="link__btn-box">
+  <%= link_to 'NEW TRANSACTION', new_category_transaction_item_path(@category.id), class: 'link' %>
+  </div>
+</div>
