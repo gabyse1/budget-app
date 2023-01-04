@@ -69,13 +69,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => 'utf-8'
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = { from: Rails.application.credentials.GMAIL_USERNAME }
+  config.action_mailer.default_options = { from: Rails.application.credentials.EMAIL_SENDER_USER }
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
     domain: 'gmail.com',
-    user_name: Rails.application.credentials.GMAIL_USERNAME,
-    password: Rails.application.credentials.GMAIL_PASSWORD,
+    user_name: Rails.application.credentials.EMAIL_SENDER_USER,
+    password: Rails.application.credentials.EMAIL_SENDER_PASSWORD,
     authentication: 'plain',
     enable_starttls_auto: true,
     openssl_verify_mode: 'none'
