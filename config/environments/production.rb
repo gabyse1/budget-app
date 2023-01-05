@@ -64,7 +64,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'ec2-52-53-252-74.us-west-1.compute.amazonaws.com' }
+  config.action_mailer.default_url_options = { host: 'ec2-54-176-165-229.us-west-1.compute.amazonaws.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => 'utf-8'
