@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+.github/
+
+# Docker
+.docker
+
+# Rails
+.env
+.env*
+.env/
+.venv/
+venv/
+node_modules/
+vendor/bundle/
+tmp/
+
+# Local data
+postgres-data/
+gem-cache/
+shared-data/
+
+# Git data
+LICENCE
+README.md
+ba-screenshot*
