@@ -10,7 +10,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
       - shared-data:/var/shared
     networks:
-      - development
+      - production
       - test
     environment:
       - POSTGRES_USER=${POSTGRES_USERNAME}
@@ -28,14 +28,19 @@ services:
       - shared-data:/var/shared
       - gem-cache:/usr/local/bundle/gems
     networks:
-      - development
+      - production
     stdin_open: true
     tty: true
-    env_file: .env.development
+    env_file: .env
     entrypoint: dev-entrypoint.sh
     command: ["rails", "s", "-p", "3000", "-b", "0.0.0.0"]
     environment:
-      - RAILS_ENV=development
+      - RAILS_ENV=production
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_PORT=${DATABASE_PORT}
     depends_on:
       - db
   
@@ -62,7 +67,7 @@ services:
       - web
 
 networks:
-  development:
+  production:
   test:
 
 volumes:
