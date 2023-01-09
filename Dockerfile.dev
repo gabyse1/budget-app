@@ -8,28 +8,27 @@ ENV TMP_PATH /tmp/
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_PORT 3000
 
-COPY ./dev-docker-entrypoint.sh /usr/local/bin/dev-entrypoint.sh
-COPY ./test-docker-entrypoint.sh /usr/local/bin/test-entrypoint.sh
-RUN chmod +x /usr/local/bin/dev-entrypoint.sh && \
-    chmod +x /usr/local/bin/test-entrypoint.sh
+COPY ./entrypoints /entrypoints
 
-RUN apk -U add --no-cache \
-    build-base \
-    postgresql-dev \
-    postgresql-client \
-    musl-dev \
-    libxml2-dev \
-    libxslt-dev \
-    nodejs \
-    && rm -rf /var/cache/apk/* \
-    && mkdir -p ${APP_PATH}
-
-RUN gem install bundler --version "${BUNDLE_VERSION}" \
-    && rm -rf $GEM_HOME/cache/*
+RUN chmod -R +x /entrypoints \
+    &&  apk -U add --no-cache \
+        build-base \
+        postgresql-dev \
+        postgresql-client \
+        musl-dev \
+        libxml2-dev \
+        libxslt-dev \
+        nodejs \
+    &&  rm -rf /var/cache/apk/* \
+    &&  mkdir -p ${APP_PATH} \
+    &&  gem install bundler --version "${BUNDLE_VERSION}" \
+    &&  rm -rf $GEM_HOME/cache/*
 
 WORKDIR ${APP_PATH}
 COPY . ${APP_PATH}
 
 EXPOSE ${RAILS_PORT}
+
+ENV PATH="/entrypoints:$PATH"
 
 ENTRYPOINT [ "bundle", "exec" ]
