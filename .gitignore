@@ -30,3 +30,13 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 node_modules/
+
+# Environments
+.env*
+.venv*
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+!.env-example
