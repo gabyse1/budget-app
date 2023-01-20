@@ -17,13 +17,13 @@ A mobile web application where users can manage their budget.
 
 ## Live demo
 
-[Budget app demo](http://ec2-13-57-58-196.us-west-1.compute.amazonaws.com/)
+[Budget app demo](http://ec2-13-56-254-159.us-west-1.compute.amazonaws.com/)
 
 
 ## Built With
 
 - Ruby
-- Ruby on Rails
+- Rails
 - Docker
 
 ## Getting Started
