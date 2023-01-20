@@ -1,0 +1,15 @@
+<%= render partial: 'layouts/header', locals: { h_title: 'CATEGORY', h_back: categories_path, h_submit: true } %>
+<div class="box__main box__main-full">
+  <%= render partial: 'layouts/message' %>
+  <%= form_with model: Category.new, class: 'new_user' do |f| %>
+    <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+    </div>
+    <div class="field">
+    <%= f.label :icon %><br />
+    <%= f.file_field :icon %>
+    </div>
+    <%= f.submit 'Save', class: 'btn-header' %>
+  <% end %>
+</div>

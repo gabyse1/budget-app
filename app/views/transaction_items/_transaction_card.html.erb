@@ -1,0 +1,9 @@
+<li class="list__item" id="transaction-#{transaction.id}">
+  <div class="item__desc">
+    <%= tag.p transaction.name %>
+    <%= tag.span transaction.created_at.strftime('%m %b %Y %I:%M%p').gsub('AM','am').gsub('PM','pm').gsub(':00',''), class: 'transaction-date text__small' %>
+  </div>
+  <div class="item__amount">
+    <%= tag.p "$ #{transaction.amount}" %>
+  </div>
+</li>

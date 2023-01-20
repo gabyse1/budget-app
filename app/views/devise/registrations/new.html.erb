@@ -1,0 +1,37 @@
+<%= render partial: 'layouts/header', locals: { h_title: 'REGISTER', h_back: root_path, h_submit: true } %>
+
+<div class="box__main box__main-full">
+<%= render partial: 'layouts/message' %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <em>(enter a valid email to send you a verification)</em><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Next", class: 'btn-header' %>
+  </div>
+<% end %>
+<%= tag.p 'Check your email box to confirm your account.', class: 'note-message' %>
+</div>
